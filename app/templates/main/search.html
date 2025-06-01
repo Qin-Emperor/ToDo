@@ -1,0 +1,15 @@
+{% for task in tasks %}
+    <div class="todo-card" id="todo-card-{{ task.id }}" hx-swap="innerHTML">
+        <div class="task-info">
+            <p class="task-text">{{ task.content }}</p>
+            <p class="task-deadline">Дата закінчення завдання: {{ task.deadline.strftime("%Y-%m-%d %H:%M") }}</p>
+            <p class="task-status">Статус: {{ task.status.value }}</p>
+        </div>
+        <div class="task-actions">
+            <a class="btn btn-update" hx-get="{{ url_for('main.update_task', task_id=task.id) }}" hx-trigger="click"
+               hx-target="#todo-card-{{ task.id }}">Оновити</a>
+            <a href="{{ url_for('main.delete_task', task_id=task.id) }}" class="btn btn-delete">Видалити</a>
+            <a href="{{ url_for('main.complete_task', task_id=task.id) }}" class="btn btn-complete">Готово</a>
+        </div>
+    </div>
+{% endfor %}

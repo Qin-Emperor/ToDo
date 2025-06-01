@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Вхід</h1>
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <h4 class="{{ category }} center">{{ message }}</h4>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="post" class="login-form">
+            {{ form.hidden_tag() }}
+
+            {{ form.email.label() }}
+            {{ form.email() }}
+
+            {{ form.password.label() }}
+            {{ form.password() }}
+
+            {{ form.submit(class="login-submit-btn") }}
+        </form>
+        <a href="{{ url_for('auth.register') }}">Ще немає акаунту?</a>
+    </div>
+</body>
+</html>

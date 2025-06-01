@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6c63ff;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.todo-header-left h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.todo-header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.todo-header-right span {
+    font-size: 1.1em;
+    color: #e0e0f1;
+}
+
+.todo-logout-btn, .login-button {
+    text-decoration: none;
+    background-color: #e63946;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.todo-logout-btn, .login-button:hover {
+    background-color: #d62828;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+    border-color: #0078D4;
+    box-shadow: 0 4px 8px rgba(0, 120, 212, 0.3);
+}
+
+.search-input::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.registration-container, .login-container {
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.registration-container h1, .login-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.registration-form label, .login-form label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.registration-form input, .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.registration-form input:focus, .login-form input:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.registration-submit-btn, .login-submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-submit-btn:hover {
+    background-color: #574dcf;
+}
+
+.form-inline {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.large-input {
+    width: 400px;
+}
+
+.small-input {
+    width: 150px;
+}
+
+.todo-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.task-deadline {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+.task-status {
+    font-size: 14px;
+    color: #007bff;
+    margin: 5px 0 0;
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-update {
+    background-color: #ffc107;
+}
+
+.btn-update:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete, .btn-secondary {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover, .btn-secondary:hover {
+    background-color: #c82333;
+}
+
+.btn-complete, .btn-add, .btn-save {
+    background-color: #28a745;
+}
+
+.btn-complete:hover, .btn-add:hover, .btn-save:hover {
+    background-color: #218838;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.success {
+    color: green;
+    background-color: #e6ffe6;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.error {
+    color: red;
+    background-color: #ffe6e6;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.center {
+    text-align: center;
+}
