@@ -71,3 +71,19 @@ class UserTask(Resource):
         db.session.delete(task)
         db.session.commit()
         return {"msg": "Task deleted"}, 200
+
+
+@tasks_ns.route("/complete/<int:task_id>")
+class CompleteTask(Resource):
+    @jwt_required()
+    def post(self, task_id):
+        """Mark a task as completed"""
+        task = db.session.scalar(select(Task).where(Task.id == task_id))
+        if task.status == TaskStatus.COMPLETED:
+            return {"msg": "Task is already completed"}, 400
+        if task.status == TaskStatus.IN_PROGRESS or task.status == TaskStatus.OVERDUE:
+            task.status = TaskStatus.COMPLETED
+            AsyncResult(task.celery_id).revoke(terminate=True)
+            db.session.commit()
+            return {"msg": "Task marked as completed"}, 200
+        return {"msg": "Task is already completed or overdue"}, 400
