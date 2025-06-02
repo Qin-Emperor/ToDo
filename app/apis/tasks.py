@@ -79,11 +79,9 @@ class CompleteTask(Resource):
     def post(self, task_id):
         """Mark a task as completed"""
         task = db.session.scalar(select(Task).where(Task.id == task_id))
-        if task.status == TaskStatus.COMPLETED:
-            return {"msg": "Task is already completed"}, 400
         if task.status == TaskStatus.IN_PROGRESS or task.status == TaskStatus.OVERDUE:
             task.status = TaskStatus.COMPLETED
             AsyncResult(task.celery_id).revoke(terminate=True)
             db.session.commit()
             return {"msg": "Task marked as completed"}, 200
-        return {"msg": "Task is already completed or overdue"}, 400
+        return {"msg": "Task is already completed"}, 400
