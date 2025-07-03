@@ -9,7 +9,6 @@ ToDo is a web application for task management built with Flask. It supports user
 - Asynchronous email notifications (Celery + Redis)
 - REST API with JWT authentication
 - Database migrations (Flask-Migrate)
-- CORS support
 - Form validation (WTForms)
 - Modular structure with Blueprints and API namespaces
 
